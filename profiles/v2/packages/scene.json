@@ -83,11 +83,89 @@
         "height": 768.6000000000001
       },
       "scale": 1.0675000000000001
+    },
+    "2600067d-14aa-4742-9049-6a21a75c881a": {
+      "position": {
+        "x": 640,
+        "y": 360.0000000000001,
+        "z": 5000
+      },
+      "rotation": {
+        "x": 0,
+        "y": 0,
+        "z": 0,
+        "w": 1
+      },
+      "viewCenter": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "contentRect": {
+        "x": 0,
+        "y": -84.59016393442613,
+        "width": 1366.4,
+        "height": 768.6000000000001
+      },
+      "scale": 1.0675000000000001
+    },
+    "587219b1-d3cd-4164-b350-05dd3b26abd5": {
+      "position": {
+        "x": 359.41333333333336,
+        "y": 640.5866666666667,
+        "z": 5000
+      },
+      "rotation": {
+        "x": 0,
+        "y": 0,
+        "z": 0,
+        "w": 1
+      },
+      "viewCenter": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "contentRect": {
+        "x": 0,
+        "y": 0,
+        "width": 504,
+        "height": 896
+      },
+      "scale": 0.7
+    },
+    "4e8c118b-9a18-4337-8617-cf8de3d77eee": {
+      "position": {
+        "x": 365,
+        "y": 640,
+        "z": 5000
+      },
+      "rotation": {
+        "x": 0,
+        "y": 0,
+        "z": 0,
+        "w": 1
+      },
+      "viewCenter": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "contentRect": {
+        "x": 0,
+        "y": 0,
+        "width": 541.340625,
+        "height": 949.2
+      },
+      "scale": 0.7415625
     }
   },
   "camera-uuids": [
     "2b2346a3-7d6b-45b1-b36c-9abe6f4d0ea3",
-    "b64fa16b-678d-4de6-a33c-62e5ffa9e6a0"
+    "b64fa16b-678d-4de6-a33c-62e5ffa9e6a0",
+    "2600067d-14aa-4742-9049-6a21a75c881a",
+    "587219b1-d3cd-4164-b350-05dd3b26abd5",
+    "4e8c118b-9a18-4337-8617-cf8de3d77eee"
   ],
   "camera": {
     "color": [
@@ -109,5 +187,22 @@
     "iso": 0,
     "aperture": 19,
     "shutter": 7
+  },
+  "scene_view": {
+    "isSceneLightOn": true,
+    "output_device": "__default_design__"
+  },
+  "float-window": {
+    "position": {
+      "cc": {
+        "Camera": {
+          "dock": false,
+          "top": null,
+          "bottom": 10,
+          "left": null,
+          "right": 10
+        }
+      }
+    }
   }
 }
