@@ -3,12 +3,35 @@ const { ccclass, property } = _decorator;
 
 @ccclass('MoveBg')
 export class MoveBg extends Component {
+
+    @property(Node)
+    target1ToMove:Node = null;
+    @property(Node)
+    target2ToMove:Node = null;
+
+    @property
+    moveSpeed:number = 100;
+
     start() {
 
     }
 
     update(deltaTime: number) {
-        
+        const moveDistance = this.moveSpeed * deltaTime;
+
+        const p1 = this.target1ToMove.getPosition();
+        this.target1ToMove.setPosition(p1.x - moveDistance, p1.y);
+        const p2 = this.target2ToMove.getPosition();
+        this.target2ToMove.setPosition(p2.x - moveDistance, p2.y);
+
+        if (p1.x < -730) {
+            const p2 = this.target2ToMove.getPosition();
+            this.target1ToMove.setPosition(p2.x + 725, p1.y);
+        }
+        if (p2.x < -730) {
+            const p1 = this.target1ToMove.getPosition();
+            this.target2ToMove.setPosition(p1.x + 725, p2.y);
+        }
     }
 }
 
