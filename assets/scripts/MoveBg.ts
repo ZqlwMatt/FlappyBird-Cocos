@@ -1,4 +1,5 @@
 import { _decorator, Component, Node } from 'cc';
+import { GameManager } from './GameManager';
 const { ccclass, property } = _decorator;
 
 @ccclass('MoveBg')
@@ -9,11 +10,10 @@ export class MoveBg extends Component {
     @property(Node)
     target2ToMove:Node = null;
 
-    @property
-    moveSpeed:number = 100;
+    private moveSpeed:number = 100;
 
     start() {
-
+        this.moveSpeed = GameManager.inst().moveSpeed;
     }
 
     update(deltaTime: number) {
