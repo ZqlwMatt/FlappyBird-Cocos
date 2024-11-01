@@ -20,7 +20,9 @@ export class PipeSpawner extends Component {
         if (this.timer >= this.spawnRate) {
             this.timer = 0;
             this.spawnPipe();
+            this.destroyPipe();
         }
+
     }
 
     spawnPipe() {
@@ -32,6 +34,14 @@ export class PipeSpawner extends Component {
         const p_local = pipeInst.getPosition();
         const y_offset = math.randomRangeInt(-300, 300);
         pipeInst.setPosition(p_local.x, y_offset);
+    }
+
+    destroyPipe() {
+        this.node.children.forEach(child => {
+            if (child.getWorldPosition().x < -400) {
+                child.destroy();
+            }
+        });
     }
 }
 
