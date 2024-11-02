@@ -1,7 +1,7 @@
 import { _decorator, Component, Node } from 'cc';
 const { ccclass, property } = _decorator;
 
-@ccclass('GamjeManager')
+@ccclass('GameManager')
 export class GameManager extends Component {
 
     private static _inst: GameManager = null;
