@@ -86,7 +86,7 @@
         "__id__": 38
       },
       {
-        "__id__": 41
+        "__id__": 42
       }
     ],
     "_active": true,
@@ -1220,7 +1220,29 @@
     "_enabled": true,
     "__prefab": null,
     "moveSpeed": 150,
+    "bird": {
+      "__id__": 41
+    },
+    "moveBg": {
+      "__id__": 12
+    },
+    "moveLand": {
+      "__id__": 37
+    },
     "_id": "76FEGj0NdL9aZ4+WNUTBdt"
+  },
+  {
+    "__type__": "0a3beduUy9BbJIp1nE6+ZCT",
+    "_name": "",
+    "_objFlags": 0,
+    "__editorExtras__": {},
+    "node": {
+      "__id__": 42
+    },
+    "_enabled": true,
+    "__prefab": null,
+    "rotateSpeed": 60,
+    "_id": "25JUTRvp5OFKIMsHun6noz"
   },
   {
     "__type__": "cc.Node",
@@ -1234,9 +1256,6 @@
     "_active": true,
     "_components": [
       {
-        "__id__": 42
-      },
-      {
         "__id__": 43
       },
       {
@@ -1247,6 +1266,9 @@
       },
       {
         "__id__": 46
+      },
+      {
+        "__id__": 41
       },
       {
         "__id__": 47
@@ -1288,7 +1310,7 @@
     "_objFlags": 0,
     "__editorExtras__": {},
     "node": {
-      "__id__": 41
+      "__id__": 42
     },
     "_enabled": true,
     "__prefab": null,
@@ -1310,7 +1332,7 @@
     "_objFlags": 0,
     "__editorExtras__": {},
     "node": {
-      "__id__": 41
+      "__id__": 42
     },
     "_enabled": true,
     "__prefab": null,
@@ -1349,7 +1371,7 @@
     "_objFlags": 0,
     "__editorExtras__": {},
     "node": {
-      "__id__": 41
+      "__id__": 42
     },
     "_enabled": true,
     "__prefab": null,
@@ -1380,7 +1402,7 @@
     "_objFlags": 0,
     "__editorExtras__": {},
     "node": {
-      "__id__": 41
+      "__id__": 42
     },
     "_enabled": true,
     "__prefab": null,
@@ -1403,25 +1425,12 @@
     "_id": "59o6SD+0RPc6aYHYkvrILa"
   },
   {
-    "__type__": "0a3beduUy9BbJIp1nE6+ZCT",
-    "_name": "",
-    "_objFlags": 0,
-    "__editorExtras__": {},
-    "node": {
-      "__id__": 41
-    },
-    "_enabled": true,
-    "__prefab": null,
-    "rotateSpeed": 60,
-    "_id": "25JUTRvp5OFKIMsHun6noz"
-  },
-  {
     "__type__": "cc.CircleCollider2D",
     "_name": "",
     "_objFlags": 0,
     "__editorExtras__": {},
     "node": {
-      "__id__": 41
+      "__id__": 42
     },
     "_enabled": true,
     "__prefab": null,

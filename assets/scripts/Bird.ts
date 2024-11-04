@@ -9,6 +9,8 @@ export class Bird extends Component {
     @property
     rotateSpeed: number = 10;
 
+    private _canControl: boolean = false;
+
     onLoad() {
         input.on(Input.EventType.TOUCH_START, this.onTouchStart, this);
         // 碰撞回调
@@ -17,16 +19,19 @@ export class Bird extends Component {
             collider.on(Contact2DType.BEGIN_CONTACT, this.onBeginContact, this);
             collider.on(Contact2DType.END_CONTACT, this.onEndContact, this);
         }
+        this.rgd2D = this.node.getComponent(RigidBody2D);
     }
     
     start() {
-        this.rgd2D = this.node.getComponent(RigidBody2D);
+        // this.rgd2D = this.node.getComponent(RigidBody2D);
     }
 
     update(deltaTime: number) {
-        this.node.angle -= this.rotateSpeed * deltaTime;
-        if (this.node.angle < -60) {
-            this.node.angle = -60;
+        if (this._canControl) {
+            this.node.angle -= this.rotateSpeed * deltaTime;
+            if (this.node.angle < -60) {
+                this.node.angle = -60;
+            }
         }
     }
 
@@ -34,10 +39,22 @@ export class Bird extends Component {
         input.off(Input.EventType.TOUCH_START, this.onTouchStart, this);
     }
 
+    public enableControl() {
+        this._canControl = true;
+        this.rgd2D.enabled = true;
+    }
+
+    public disableControl() {
+        this._canControl = false;
+        this.rgd2D.enabled = false;
+    }
+
     onTouchStart(event: EventTouch) {
-        this.rgd2D.linearVelocity = new Vec2(0, 10); // 向上运动
-        // this.node.setRotationFromEuler(new Vec3(0, 0, 30)); // 向上旋转
-        this.node.angle = 30;
+        if (this._canControl) {
+            this.rgd2D.linearVelocity = new Vec2(0, 10); // 向上运动
+            // this.node.setRotationFromEuler(new Vec3(0, 0, 30)); // 向上旋转
+            this.node.angle = 30;
+        }
     }
 
     onBeginContact(selfCollider: Collider2D, otherCollider: Collider2D) {

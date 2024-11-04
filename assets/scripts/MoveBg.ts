@@ -12,11 +12,16 @@ export class MoveBg extends Component {
 
     private moveSpeed:number = 100;
 
+    private _canMove: boolean = false;
+
     start() {
         this.moveSpeed = GameManager.inst().moveSpeed;
     }
 
     update(deltaTime: number) {
+        if (!this._canMove) return;
+        console.log('MoveBg update');
+
         const moveDistance = this.moveSpeed * deltaTime;
 
         const p1 = this.target1ToMove.getPosition();
@@ -32,6 +37,14 @@ export class MoveBg extends Component {
             const p1 = this.target1ToMove.getPosition();
             this.target2ToMove.setPosition(p1.x + 725, p2.y);
         }
+    }
+
+    public enableMove() {
+        this._canMove = true;
+    }
+
+    public disableMove() {
+        this._canMove = false;
     }
 }
 

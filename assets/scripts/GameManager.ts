@@ -1,5 +1,13 @@
 import { _decorator, Component, Node } from 'cc';
+import { Bird } from './Bird';
+import { MoveBg } from './MoveBg';
 const { ccclass, property } = _decorator;
+
+enum GameState {
+    Ready,
+    Playing,
+    GameOver
+}
 
 @ccclass('GameManager')
 export class GameManager extends Component {
@@ -15,16 +23,42 @@ export class GameManager extends Component {
     @property
     moveSpeed: number = 100;
 
+    @property(Bird)
+    bird: Bird = null;
+    @property(MoveBg)
+    moveBg: MoveBg = null;
+    @property(MoveBg)
+    moveLand: MoveBg = null;
+
+    gameState: GameState = GameState.Ready;
+
     onLoad() {
         GameManager._inst = this;
     }
  
     start() {
-
+        this.transitionToReady();
     }
 
-    update(deltaTime: number) {
-        
+    transitionToReady() {
+        this.gameState = GameState.Ready;
+        this.bird.disableControl();
+        this.moveBg.disableMove();
+        this.moveLand.disableMove();
+    }
+
+    transitionToPlaying() {
+        this.gameState = GameState.Playing;
+        this.bird.enableControl();
+        this.moveBg.enableMove();
+        this.moveLand.enableMove();
+    }
+
+    transitionToGameOver() {
+        this.gameState = GameState.GameOver;
+        this.bird.disableControl();
+        this.moveBg.disableMove();
+        this.moveLand.disableMove();
     }
 }
 
