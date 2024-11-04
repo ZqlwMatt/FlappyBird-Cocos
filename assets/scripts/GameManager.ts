@@ -1,6 +1,7 @@
 import { _decorator, Component, Node } from 'cc';
 import { Bird } from './Bird';
 import { MoveBg } from './MoveBg';
+import { PipeSpawner } from './PipeSpawner';
 const { ccclass, property } = _decorator;
 
 enum GameState {
@@ -32,6 +33,9 @@ export class GameManager extends Component {
 
     gameState: GameState = GameState.Ready;
 
+    @property(PipeSpawner)
+    pipeSpawner:PipeSpawner = null;
+
     onLoad() {
         GameManager._inst = this;
     }
@@ -45,6 +49,7 @@ export class GameManager extends Component {
         this.bird.disableControl();
         this.moveBg.disableMove();
         this.moveLand.disableMove();
+        this.pipeSpawner.pause();
     }
 
     transitionToPlaying() {

@@ -1,4 +1,4 @@
-import { _decorator, Collider, Collider2D, Component, Contact2DType, EventTouch, input, Input, Node, RigidBody2D, Vec2, Vec3 } from 'cc';
+import { _decorator, Animation, Collider, Collider2D, Component, Contact2DType, EventTouch, input, Input, Node, RigidBody2D, Vec2, Vec3 } from 'cc';
 const { ccclass, property } = _decorator;
 
 @ccclass('Bird')
@@ -42,11 +42,13 @@ export class Bird extends Component {
     public enableControl() {
         this._canControl = true;
         this.rgd2D.enabled = true;
+        this.getComponent(Animation).enabled = true;
     }
 
     public disableControl() {
         this._canControl = false;
         this.rgd2D.enabled = false;
+        this.getComponent(Animation).enabled = false;
     }
 
     onTouchStart(event: EventTouch) {
