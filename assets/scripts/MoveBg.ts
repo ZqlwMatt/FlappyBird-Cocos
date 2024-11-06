@@ -20,7 +20,6 @@ export class MoveBg extends Component {
 
     update(deltaTime: number) {
         if (!this._canMove) return;
-        console.log('MoveBg update');
 
         const moveDistance = this.moveSpeed * deltaTime;
 

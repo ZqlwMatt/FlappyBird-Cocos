@@ -12,10 +12,6 @@ export class PipeSpawner extends Component {
     private timer: number = 0;
     private _isSpawning: boolean = false;
 
-    start() {
-
-    }
-
     update(deltaTime: number) {
         if (!this._isSpawning) return;
 
@@ -23,7 +19,7 @@ export class PipeSpawner extends Component {
         if (this.timer >= this.spawnRate) {
             this.timer = 0;
             this.spawnPipe();
-            this.destroyPipe();
+            // this.destroyPipe();
         }
 
     }
@@ -39,13 +35,13 @@ export class PipeSpawner extends Component {
         pipeInst.setPosition(p_local.x, y_offset);
     }
 
-    destroyPipe() {
-        this.node.children.forEach(child => {
-            if (child.getWorldPosition().x < -400) {
-                child.destroy();
-            }
-        });
-    }
+    // destroyPipe() {
+    //     this.node.children.forEach(child => {
+    //         if (child.getWorldPosition().x < -400) {
+    //             child.destroy();
+    //         }
+    //     });
+    // }
 
     public pause() {
         this._isSpawning = false;

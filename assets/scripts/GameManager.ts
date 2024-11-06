@@ -2,6 +2,7 @@ import { _decorator, Component, Node } from 'cc';
 import { Bird } from './Bird';
 import { MoveBg } from './MoveBg';
 import { PipeSpawner } from './PipeSpawner';
+import { GameReadyUI } from './UI/GameReadyUI';
 const { ccclass, property } = _decorator;
 
 enum GameState {
@@ -30,6 +31,8 @@ export class GameManager extends Component {
     moveBg: MoveBg = null;
     @property(MoveBg)
     moveLand: MoveBg = null;
+    @property(GameReadyUI)
+    gameReadyUI: GameReadyUI = null;
 
     gameState: GameState = GameState.Ready;
 
@@ -57,6 +60,8 @@ export class GameManager extends Component {
         this.bird.enableControl();
         this.moveBg.enableMove();
         this.moveLand.enableMove();
+        this.pipeSpawner.resume();
+        this.gameReadyUI.node.active = false;
     }
 
     transitionToGameOver() {
@@ -64,6 +69,7 @@ export class GameManager extends Component {
         this.bird.disableControl();
         this.moveBg.disableMove();
         this.moveLand.disableMove();
+        this.pipeSpawner.pause();
     }
 }
 
