@@ -1,8 +1,9 @@
-import { _decorator, Component, Node } from 'cc';
+import { _decorator, Component, Label, Node } from 'cc';
 import { Bird } from './Bird';
 import { MoveBg } from './MoveBg';
 import { PipeSpawner } from './PipeSpawner';
 import { GameReadyUI } from './UI/GameReadyUI';
+import { GameData } from './GameData';
 const { ccclass, property } = _decorator;
 
 enum GameState {
@@ -33,6 +34,10 @@ export class GameManager extends Component {
     moveLand: MoveBg = null;
     @property(GameReadyUI)
     gameReadyUI: GameReadyUI = null;
+    @property(Node)
+    gamingUI: Node = null;
+    @property(Label)
+    scoreLabel: Label = null;
 
     gameState: GameState = GameState.Ready;
 
@@ -53,6 +58,8 @@ export class GameManager extends Component {
         this.moveBg.disableMove();
         this.moveLand.disableMove();
         this.pipeSpawner.pause();
+        this.gameReadyUI.node.active = true;
+        this.gamingUI.active = false;
     }
 
     transitionToPlaying() {
@@ -62,6 +69,7 @@ export class GameManager extends Component {
         this.moveLand.enableMove();
         this.pipeSpawner.resume();
         this.gameReadyUI.node.active = false;
+        this.gamingUI.active = true;
     }
 
     transitionToGameOver() {
@@ -70,6 +78,13 @@ export class GameManager extends Component {
         this.moveBg.disableMove();
         this.moveLand.disableMove();
         this.pipeSpawner.pause();
+    }
+
+    // score
+
+    addScore(value: number = 1) {
+        GameData.add_score(value);
+        this.scoreLabel.string = GameData.get_score().toString();
     }
 }
 

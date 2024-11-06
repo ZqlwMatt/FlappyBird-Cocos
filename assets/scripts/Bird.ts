@@ -1,4 +1,6 @@
 import { _decorator, Animation, Collider, Collider2D, Component, Contact2DType, EventTouch, input, Input, Node, RigidBody2D, Vec2, Vec3 } from 'cc';
+import { Tags } from './Tags';
+import { GameManager } from './GameManager';
 const { ccclass, property } = _decorator;
 
 @ccclass('Bird')
@@ -69,7 +71,9 @@ export class Bird extends Component {
     }
 
     onEndContact(selfCollider: Collider2D, otherCollider: Collider2D) {
-
+        if (otherCollider.tag === Tags.PIPE_MIDDLE) {
+            GameManager.inst().addScore();
+        }
     }
 }
 
