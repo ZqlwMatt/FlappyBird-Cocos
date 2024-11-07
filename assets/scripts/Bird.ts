@@ -68,6 +68,10 @@ export class Bird extends Component {
 
     onBeginContact(selfCollider: Collider2D, otherCollider: Collider2D) {
         console.log(otherCollider.tag);
+
+        if (otherCollider.tag === Tags.LAND || otherCollider.tag === Tags.PIPE) {
+            GameManager.inst().transitionToGameOver();
+        }
     }
 
     onEndContact(selfCollider: Collider2D, otherCollider: Collider2D) {

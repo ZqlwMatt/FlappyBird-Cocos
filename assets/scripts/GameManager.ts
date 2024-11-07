@@ -4,6 +4,7 @@ import { MoveBg } from './MoveBg';
 import { PipeSpawner } from './PipeSpawner';
 import { GameReadyUI } from './UI/GameReadyUI';
 import { GameData } from './GameData';
+import { GameOverUI } from './UI/GameOverUI';
 const { ccclass, property } = _decorator;
 
 enum GameState {
@@ -36,6 +37,8 @@ export class GameManager extends Component {
     gameReadyUI: GameReadyUI = null;
     @property(Node)
     gamingUI: Node = null;
+    @property(GameOverUI)
+    gameOverUI: GameOverUI = null;
     @property(Label)
     scoreLabel: Label = null;
 
@@ -60,6 +63,7 @@ export class GameManager extends Component {
         this.pipeSpawner.pause();
         this.gameReadyUI.node.active = true;
         this.gamingUI.active = false;
+        this.gameOverUI.hide();
     }
 
     transitionToPlaying() {
@@ -78,6 +82,9 @@ export class GameManager extends Component {
         this.moveBg.disableMove();
         this.moveLand.disableMove();
         this.pipeSpawner.pause();
+        this.gamingUI.active = false;
+
+        this.gameOverUI.show(0, 0);
     }
 
     // score
