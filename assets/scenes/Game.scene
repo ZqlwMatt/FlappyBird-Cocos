@@ -727,7 +727,7 @@
       "__uuid__": "9428c9dc-75f1-4377-b573-9baa6cd66285",
       "__expectedType__": "cc.Prefab"
     },
-    "spawnRate": 1.5,
+    "spawnRate": 2,
     "_id": "023/OfdWpBNJCgx2h4udJy"
   },
   {

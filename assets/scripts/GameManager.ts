@@ -109,6 +109,12 @@ export class GameManager extends Component {
     addScore(value: number = 1) {
         GameData.add_score(value);
         this.scoreLabel.string = GameData.get_score().toString();
+
+        if (GameData.get_score() % 5 === 0) {
+            let rate = this.pipeSpawner.getSpawnRate() - 0.4;
+            if (rate < 1.2) rate = 1.2;
+            this.pipeSpawner.setSpawnRate(rate);
+        }
     }
 }
 

@@ -30,5 +30,9 @@ export class GameData {
     public static clearStorage() {
         localStorage.clear();
     }
+
+    public static reset() {
+        this._score = 0;
+    }
 }
 

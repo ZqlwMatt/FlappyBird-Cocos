@@ -1,4 +1,5 @@
 import { _decorator, Component, director, Label, Node, Sprite } from 'cc';
+import { GameData } from '../GameData';
 const { ccclass, property } = _decorator;
 
 @ccclass('GameOverUI')
@@ -39,6 +40,7 @@ export class GameOverUI extends Component {
 
     onPlayButtonClick() {
         director.loadScene(director.getScene().name);
+        GameData.reset();
     }
 }
 

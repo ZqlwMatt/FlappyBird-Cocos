@@ -25,6 +25,14 @@ export class PipeSpawner extends Component {
 
     }
 
+    public setSpawnRate(value: number) {
+        this.spawnRate = value;
+    }
+
+    public getSpawnRate(): number {
+        return this.spawnRate;
+    }
+
     spawnPipe() {
         const pipeInst = instantiate(this.pipePrefab);
         this.node.addChild(pipeInst);
