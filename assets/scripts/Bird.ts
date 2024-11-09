@@ -1,6 +1,7 @@
-import { _decorator, Animation, Collider, Collider2D, Component, Contact2DType, EventTouch, input, Input, Node, RigidBody2D, Vec2, Vec3 } from 'cc';
+import { _decorator, Animation, AudioClip, Collider, Collider2D, Component, Contact2DType, EventTouch, input, Input, Node, RigidBody2D, Vec2, Vec3 } from 'cc';
 import { Tags } from './Tags';
 import { GameManager } from './GameManager';
+import { AudioMgr } from './AudioMgr';
 const { ccclass, property } = _decorator;
 
 @ccclass('Bird')
@@ -12,6 +13,9 @@ export class Bird extends Component {
     rotateSpeed: number = 10;
 
     private _canControl: boolean = false;
+
+    @property(AudioClip)
+    clickAudio: AudioClip = null;
 
     onLoad() {
         input.on(Input.EventType.TOUCH_START, this.onTouchStart, this);
@@ -73,6 +77,7 @@ export class Bird extends Component {
             this.rgd2D.linearVelocity = new Vec2(0, 10); // 向上运动
             // this.node.setRotationFromEuler(new Vec3(0, 0, 30)); // 向上旋转
             this.node.angle = 30;
+            AudioMgr.inst.playOneShot(this.clickAudio, 0.5);
         }
     }
 

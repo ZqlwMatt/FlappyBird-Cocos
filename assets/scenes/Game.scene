@@ -1247,6 +1247,14 @@
     "pipeSpawner": {
       "__id__": 24
     },
+    "bgAudio": {
+      "__uuid__": "02de5b24-7865-4ddf-aa54-c548c51b36c8",
+      "__expectedType__": "cc.AudioClip"
+    },
+    "gameOverAudio": {
+      "__uuid__": "35d2403e-bd04-49b9-be68-f641c03543be",
+      "__expectedType__": "cc.AudioClip"
+    },
     "_id": "76FEGj0NdL9aZ4+WNUTBdt"
   },
   {
@@ -1260,6 +1268,10 @@
     "_enabled": true,
     "__prefab": null,
     "rotateSpeed": 60,
+    "clickAudio": {
+      "__uuid__": "b8c0935c-58ee-40fc-a7c3-cdcaf9f61e12",
+      "__expectedType__": "cc.AudioClip"
+    },
     "_id": "25JUTRvp5OFKIMsHun6noz"
   },
   {
@@ -3207,7 +3219,7 @@
     "__prefab": null,
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 50.48756964631783,
+      "width": 28.243784823158915,
       "height": 56.39999999999999
     },
     "_anchorPoint": {
@@ -3237,7 +3249,7 @@
       "b": 255,
       "a": 255
     },
-    "_string": "89",
+    "_string": "0",
     "_horizontalAlign": 1,
     "_verticalAlign": 1,
     "_actualFontSize": 48.375,

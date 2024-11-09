@@ -1,10 +1,11 @@
-import { _decorator, Component, Label, Node } from 'cc';
+import { _decorator, AudioClip, Component, Label, Node } from 'cc';
 import { Bird } from './Bird';
 import { MoveBg } from './MoveBg';
 import { PipeSpawner } from './PipeSpawner';
 import { GameReadyUI } from './UI/GameReadyUI';
 import { GameData } from './GameData';
 import { GameOverUI } from './UI/GameOverUI';
+import { AudioMgr } from './AudioMgr';
 const { ccclass, property } = _decorator;
 
 enum GameState {
@@ -47,12 +48,18 @@ export class GameManager extends Component {
     @property(PipeSpawner)
     pipeSpawner:PipeSpawner = null;
 
+    @property(AudioClip)
+    bgAudio: AudioClip = null;
+    @property(AudioClip)
+    gameOverAudio: AudioClip = null;
+
     onLoad() {
         GameManager._inst = this;
     }
  
     start() {
         this.transitionToReady();
+        AudioMgr.inst.play(this.bgAudio, 0.5);
     }
 
     transitionToReady() {
@@ -93,6 +100,8 @@ export class GameManager extends Component {
 
         this.gameOverUI.show(GameData.get_score(), GameData.get_bestScore());
         GameData.saveScore();
+        AudioMgr.inst.stop();
+        AudioMgr.inst.playOneShot(this.gameOverAudio, 0.5);
     }
 
     // score
