@@ -69,7 +69,7 @@ export class Bird extends Component {
 
     onTouchStart(event: EventTouch) {
         if (this._canControl) {
-            console.log(this._canControl);
+            // console.log(this._canControl);
             this.rgd2D.linearVelocity = new Vec2(0, 10); // 向上运动
             // this.node.setRotationFromEuler(new Vec3(0, 0, 30)); // 向上旋转
             this.node.angle = 30;
