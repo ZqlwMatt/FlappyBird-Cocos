@@ -64,6 +64,8 @@ export class GameManager extends Component {
         this.gameReadyUI.node.active = true;
         this.gamingUI.active = false;
         this.gameOverUI.hide();
+
+        // GameData.clearStorage();
     }
 
     transitionToPlaying() {
@@ -77,6 +79,8 @@ export class GameManager extends Component {
     }
 
     transitionToGameOver() {
+        if (this.gameState === GameState.GameOver) return;
+
         this.gameState = GameState.GameOver;
         this.bird.disableControlNotRGD();
         this.moveBg.disableMove();
@@ -84,7 +88,8 @@ export class GameManager extends Component {
         this.pipeSpawner.pause();
         this.gamingUI.active = false;
 
-        this.gameOverUI.show(0, 0);
+        this.gameOverUI.show(GameData.get_score(), GameData.get_bestScore());
+        GameData.saveScore();
     }
 
     // score
