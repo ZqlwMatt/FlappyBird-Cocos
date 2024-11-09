@@ -52,9 +52,18 @@ export class Bird extends Component {
         this.getComponent(Animation).enabled = true;
     }
 
+    // 游戏开始调用这个
     public disableControl() {
         this._canControl = false;
+        // ! bug
+        // 不能禁用 RigidBody2D 组件，否则无法触发碰撞事件，但是该函数由撞事件调用
         this.rgd2D.enabled = false;
+        this.getComponent(Animation).enabled = false;
+    }
+    
+    // 游戏结束调用这个
+    public disableControlNotRGD() {
+        this._canControl = false;
         this.getComponent(Animation).enabled = false;
     }
 
