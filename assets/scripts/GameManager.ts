@@ -69,6 +69,9 @@ export class GameManager extends Component {
     }
 
     transitionToPlaying() {
+        // 游戏结束状态不能进入游戏开始状态
+        if (this.gameState === GameState.GameOver) return;
+
         this.gameState = GameState.Playing;
         this.bird.enableControl();
         this.moveBg.enableMove();
